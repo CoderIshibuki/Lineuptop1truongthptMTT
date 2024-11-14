@@ -2296,7 +2296,5 @@ const cardData = [
     {idx: 22, code: "TOTY22", name: "TRẦN THẾ CƯỜNG", otherNames: ["22파토", "파토2", "파토", "1토티"], image: "./resources/cards/ttc.png", type: "fm", color: "#D3F0FC"},
     {idx: 23, code: "LEGACY22", name: "LÊ HOÀNG KHANH", otherNames: ["22레거시", "레거시22", "레거시"], image: "./resources/cards/lhk.png", type: "fm", color: "white"},
     {idx: 24, code: "FS22", name: "LÊ HỮU PHÚC", otherNames: ["퓨처스타"], image: "./resources/cards/lhp.png", type: "fm", color: "white"},
-    {idx: 25, code: "HERO22", name: "NGUYỄN QUỐC TÂM", otherNames: ["히어로22", "22히어로", "히어로"], image: "./resources/cards/nqt.png", type: "fm", color: "black "},
-    {idx: 26, code: "FB22", name: "TRẦN HỮU NGHĨA", otherNames: ["플래시백", "플백"], image: "./resources/cards/thn.png", type: "fm", color: "white"}
- 
+    {idx: 25, code: "HERO22", name: "NGUYỄN QUỐC TÂM", otherNames: ["히어로22", "22히어로", "히어로123"], image: "./resources/cards/nqt.png", type: "fm", color: "black "},
 ];
