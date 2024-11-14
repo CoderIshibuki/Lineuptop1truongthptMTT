@@ -1,0 +1,692 @@
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('./resources/NEXON-Lv2-Gothic.otf') format('opentype');
+}
+
+* { padding: 0; margin: 0;}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'NEXON-Lv2-Gothic';
+}
+
+ul {
+    list-style: none;
+}
+
+.inputs {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    margin-bottom: 4px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-list {
+    width: 95%;
+    height: fit-content;
+    position: absolute;
+    z-index: 1;
+    display: none;
+}
+
+.notice-popup {
+    width: 300px;
+    height: fit-content;
+    background: whitesmoke;
+    color: black;
+    display: none;
+    box-shadow: 0px 0px 8px rgb(71, 71, 71);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.notice-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.notice-content {
+    padding: 4px;
+    word-break: keep-all;
+}
+
+.search-list {
+    width: 100%;
+    height: 150px;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.search-list li {
+    width: 100%;
+    height: auto;
+    background: rgb(240, 240, 240);
+    padding: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'NEXON-Lv2-Gothic';
+    text-align: left;
+}
+
+.search-list li > img {
+    vertical-align: middle;
+    margin: 2px;
+    object-fit: contain;
+}
+
+.search-list li:nth-child(2n) {
+    background: rgb(226, 226, 226);
+}
+
+.search-list li:hover {
+    background: darkgray;
+}
+
+#inputTxt {
+    height: 40px;
+}
+
+.btn {
+    width: 60px;
+    height: 40px;
+    margin: 8px;
+}
+
+.div-squad {
+    width: 1000px;
+    height: 650px;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.div-img {
+    width: 1000px;
+    height: 650px;
+    position: absolute;
+    text-align: center;
+}
+
+.bg-img {
+    width: 1000px;
+    height: 650px;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}
+
+.squad-content {
+    width: 1000px;
+    height: 600px;
+    position: absolute;
+    z-index: 1;
+}
+
+.sm-logo {
+    position: absolute;
+    left: 20;
+    bottom: -35px;
+}
+
+.sm-logo > img {
+    width: 100px;
+}
+
+.position {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    align-items: center;
+}
+
+.squad-text {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    text-align: right;
+    top: 40px;
+    padding: 16px;
+    font-family: 'NEXON-Lv2-Gothic';
+}
+
+.team-color {
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    color: white;
+    top: 10px;
+    padding: 16px;
+    font-size: 20px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.color-logo {
+    width: 96px;
+    height: 96px;
+    text-align: center;
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin: -8px;
+}
+
+.logo-img {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    position: absolute;
+}
+
+.color-list {
+    font-weight: bold;
+    color: green;
+}
+
+.flag-img {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+
+.flag-img > #team-img {
+    width: 30px;
+    height: 18px;
+    top: auto;
+}
+
+.color-img {
+    width: fit-content;
+    height: 40px;
+    position: absolute;
+    z-index: 1;
+    align-items: center;
+    top: 25px;
+    background: transparent;
+}
+
+.color-name {
+    width: fit-content;
+}
+
+.color-count {
+    width: fit-content;
+}
+
+.color-text {
+    width: fit-content;
+    height: 70px;
+}
+
+#gk {
+    left: 452px;
+    top: 530px;
+    border: 1px solid red;
+}
+
+#df1 {
+    left: 232px;
+    top: 400px;
+    border: 1px solid red;
+}
+
+#df2 {
+    left: 382px;
+    top: 400px;
+    border: 1px solid red;
+}
+
+#df3 {
+    left: 532px;
+    top: 400px;
+    border: 1px solid red;
+}
+
+#df4 {
+    left: 682px;
+    top: 400px;
+    border: 1px solid red;
+}
+
+#df5 {
+    display: none;
+    border: 1px solid red;
+}
+
+#mf1 {
+    left: 304px;
+    top: 300px;
+    border: 1px solid red;
+}
+
+#mf2 {
+    left: 454px;
+    top: 280px;
+    border: 1px solid red;
+}
+
+#mf3 {
+    left: 604px;
+    top: 300px;
+    border: 1px solid red;
+}
+
+#mf4 {
+    display: none;
+    border: 1px solid red;
+}
+
+#mf5 {
+    display: none;
+    border: 1px solid red;
+}
+
+#fw1 {
+    left: 304px;
+    top: 160px;
+    border: 1px solid red;
+}
+
+#fw2 {
+    left: 454px;
+    top: 160px;
+    border: 1px solid red;
+}
+
+#fw3 {
+    left: 604px;
+    top: 160px;
+    border: 1px solid red;
+}
+
+#fw4 {
+    display: none;
+}
+
+.face-img {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+}
+
+.face-img > img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    text-align: center;
+}
+
+.pos-text {
+    width: 60px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -15px;
+    z-index: 1;
+    font-family: 'NEXON-Lv2-Gothic';
+}
+
+.card-text {
+    width: auto;
+    word-break: break-all;
+    color: white;
+    font-size: 10px;
+    margin-top: 50px;
+    font-family: 'NEXON-Lv2-Gothic';
+    position: relative;
+    z-index: 2;
+}
+
+.side-menu {
+    width: fit-content;
+    height: 650px;
+    background: rgb(70, 70, 70);
+    padding: 8px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.pos-name {
+    width: 250px;
+    height: fit-content;
+    color: lime;
+    text-align: left;
+}
+
+#form-select {
+    width: 100%;
+}
+
+#face-select {
+    width: 200px;
+}
+
+.div-title {
+    color: white;
+    text-align: left;
+}
+
+.div-bottom {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-bottom2 {
+    width: fit-content;
+    height: fit-content;
+    display: none;
+}
+
+.div-flex {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-data {
+    width: fit-content;
+    height: auto;
+}
+
+#check-div {
+    text-align: left;
+    margin: 8px;
+    color: white;
+}
+
+.player-info {
+    width: 200px;
+    height: fit-content;
+    display: none;
+    position: absolute;
+    background: whitesmoke;
+    color: black;
+    z-index: 2;
+    padding: 8px;
+    border: 2px solid grey;
+}
+
+.close-info {
+    width: 30px;
+    position: absolute;
+    color: white;
+    left: 100%;
+    top: 0;
+    text-align: center;
+}
+
+.func-button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    background: gray;
+    margin-top: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#replace-button > img {
+    width: 25px;
+    height: 25px;
+    object-position: center;
+    text-align: center;
+}
+
+.info-list {
+    width: 100%;
+    text-align: left;
+}
+
+.info-list > li {
+    background: rgb(240, 240, 240);
+}
+
+.info-list > li:nth-child(2n) {
+    background: rgb(226, 226, 226);
+}
+
+.career-list {
+    overflow-y: auto;
+}
+
+.div-career {
+    width: fit-content;
+    height: 100px;
+}
+
+.footer-text {
+    color: white;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.change-pos {
+    width: 250px;
+    height: 120px;
+    display: none;
+    position: absolute;
+    background: whitesmoke;
+    color: black;
+    z-index: 1;
+    padding: 8px;
+    border: 2px solid grey;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.detail-search {
+    width: 250px;
+    height: 350px;
+    background: lightgrey;
+    position: absolute;
+    text-align: center;
+    margin-left: 1000px;
+    z-index: 1;
+    transition: 0.2s ease-in-out;
+    border-radius: 20px;
+}
+
+@media (max-width: 992px) {
+    .detail-search {
+        width: 150px;
+        height: 450px;
+        margin-left: 800px;
+    }
+
+    #div-height {
+        display: block;
+    }
+}
+
+.detail-top > .div-title {
+    width: 100%;
+    height: 35px;
+    color: black;
+    background: whitesmoke;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px;
+    border-top-right-radius: 10px;
+}
+
+.detail-top {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.open-button {
+    width: 45px;
+    height: 35px;
+    background: gray;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+}
+
+.detail-button {
+    color: gold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.detail-content {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: whitesmoke;
+    border-top: 1px solid gray;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.detail-content > .div-title {
+    color: black;
+    padding: 8px;
+}
+
+.div-filter {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    display: none;
+    z-index: 1;
+}
+
+.filter-list {
+    width: 100%;
+    height: 200px;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.filter-list > li {
+    height: auto;
+    background: rgb(240, 240, 240);
+    padding: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'NanumSquare';
+    text-align: left;
+    border-bottom: 1px solid gray;
+}
+
+.filter-list > li > img {
+    vertical-align: middle;
+    margin: 2px;
+    object-fit: contain;
+}
+
+.filter-list > li:nth-child(2n) {
+    background: rgb(226, 226, 226);
+}
+
+.filter-list > li:hover {
+    background: darkgray;
+}
+
+#pos-select {
+    padding: 8px;
+}
+
+.button-div {
+    width: 100%;
+    height: fit-content;
+    padding: 8px;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid whitesmoke;
+    border-radius: 8px;
+    background: dodgerblue;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    margin: 4px;
+    box-shadow: 0px 1px 3px rgb(10, 10, 10); 
+}
+
+.icon-button:hover {
+    background: rgb(0, 78, 156);
+}
+
+.icon-img {
+    width: 40px;
+    height: 40px;
+}
+
+#donate-text {
+    color: gold;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+}
+
+#donate-text:hover {
+    background: whitesmoke;
+    color: darkgoldenrod;
+}

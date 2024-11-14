@@ -1,0 +1,354 @@
+<html>
+    <head>
+        <title>Đội Hình Thi Đấu MTT</title>
+        <meta property="og:title" content="Đội Hình Thi Đấu Trường Mai Thanh Thế">
+        <meta property="og:description" content="FC 모바일 스쿼드 메이커">
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="Anonymous"></script>
+        <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel="stylesheet" />
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./scripts/jquery.touch.js" type="text/script"></script>
+        <link rel="stylesheet" href="styles.css">
+        <!--<script src="resources/faceDataTemp.js"></script>-->
+        <script src="resources/mainData.js"></script>
+        <script src="./scripts/main.js" defer></script>
+        <script>
+            $(document).ready(function(){
+                $(document).bind('keydown',function(e){
+                    if ( e.keyCode == 123) {
+                        e.preventDefault();
+                        e.returnValue = false;
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+        <div class="main-content">
+            <div class="div-squad">
+                <div class="div-img">
+                    <img class="bg-img" src="./resources/stadium_background.png">
+                </div>
+                <div class="notice-popup">
+                    <div class="notice-title">Notice</div>
+                    <div class="notice-content">-</div>
+                    <input type="button" class="btn btn-primary adder" id="btnOk" style="width: auto;" value="확인" onclick="closeNotice();"/>
+                </div>
+                <div class="team-color">
+                    <div class="color-logo" id="logo1">
+                        <img class="color-img" id="team-img" src="" onerror="this.src='resources/img_transparent.png'">
+                        <img class="logo-img" src="./resources/logos/teamColor.png">
+                    </div>
+                    <div class="color-logo" id="logo2">
+                        <img class="color-img" id="team-img" src="" onerror="this.src='resources/img_transparent.png'">
+                        <img class="logo-img" src="./resources/logos/teamColor.png">
+                    </div>
+                    <div class="color-logo" id="logo3">
+                        <div class="flag-img">
+                            <img class="color-img" id="team-img" src="" onerror="this.src='resources/img_transparent.png'">
+                        </div>
+                        <img class="logo-img" src="./resources/logos/teamColor.png">
+                    </div>
+                </div>
+                <div class="squad-text">
+                    4-3-3 ATTACK
+                </div>
+                <div class="squad-content">
+                    <div class="position" id="gk" cdx="-1" pdx="-1">
+                        <div class="pos-text">GK</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="df1" cdx="-1" pdx="-1">
+                        <div class="pos-text">LB</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="df2" cdx="-1" pdx="-1">
+                        <div class="pos-text">CB</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="df3" cdx="-1" pdx="-1">
+                        <div class="pos-text">CB</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="df4" cdx="-1" pdx="-1">
+                        <div class="pos-text">RB</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="df5" cdx="-1" pdx="-1">
+                        <div class="pos-text">GK</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="mf1" cdx="-1" pdx="-1">
+                        <div class="pos-text">CM</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="mf2" cdx="-1" pdx="-1">
+                        <div class="pos-text">CAM</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="mf3" cdx="-1" pdx="-1">
+                        <div class="pos-text">CM</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="mf4" cdx="-1" pdx="-1">
+                        <div class="pos-text">GK</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="mf5" cdx="-1" pdx="-1">
+                        <div class="pos-text">GK</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="fw1" cdx="-1" pdx="-1">
+                        <div class="pos-text">LW</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="fw2" cdx="-1" pdx="-1">
+                        <div class="pos-text">ST</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="fw3" cdx="-1" pdx="-1">
+                        <div class="pos-text">RW</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="position" id="fw4" cdx="-1" pdx="-1">
+                        <div class="pos-text">GK</div>
+                        <div class="face-img">
+                            <img src="" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                        </div>
+                        <div class="card-text"></div>
+                    </div>
+                    <div class="sm-logo">
+                        <img src="resources/logos/squadmaker_text.png" onerror="this.src='resources/img_transparent.png'" crossorigin="Anonymous">
+                    </div>
+                </div>
+                <div class="player-info">
+                    <div class="close-info">
+                        <div class="func-button" id="close-button" onclick="closeInfo();">
+                            X
+                        </div>
+                        <div class="func-button" id="replace-button" onclick="replacePosition();">
+                            <img src="resources/replace.svg">
+                        </div>
+                    </div>
+                    <ul class="info-list">
+
+                    </ul>
+                </div>
+                <div class="change-pos">
+                    <div class="change-title">
+                        <span>Thay Đổi Vị Trí Thẻ/Người Chơi (Trao Đổi)</span>
+                    </div>
+                    <select class="form-select" id="change-select" aria-label="Lựa Chọn Cầu Th">
+                            
+                    </select>
+                    <div class="change-bottom">
+                        <input type="button" class="btn btn-primary adder" id="btnChange" style="width: auto;" value="변경하기" onclick="changePosition();"/>
+                        <input type="button" class="btn btn-primary adder" id="btnCancel" style="width: auto;" value="취소" onclick="cancelChange();"/>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-search">
+                <div class="detail-top">
+                    <div class="open-button" onclick="closeDetailSearch();">
+                        X
+                    </div>
+                    <div class="div-title">
+                        <span>Tìm Kiếm Nâng Cao</span>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="div-title">
+                        <span>Chọn Đội Của Bạn</span>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" class="form-control" id="inputTeam" placeholder="팀명 입력" onkeypress="checkEnter(2);" />
+                        <input type="button" class="btn btn-primary adder" id="btnSearch" style="width: fit-content;" value="찾기" onclick="searchTeam();"/>
+                    </div>
+                    <div class="div-filter">
+                        <ul class="filter-list">
+
+                        </ul>
+                    </div>
+                    <div class="div-title">
+                        <span>Chiều Cao</span>
+                    </div>
+                    <div class="inputs" id="div-height">
+                        <input type="number" class="form-control" id="inputHeight1" min="150" max="250" placeholder="키 이상" value="150" />
+                        <input type="number" class="form-control" id="inputHeight2" min="150" max="230" placeholder="키 미만" value="230" />
+                        <input type="button" class="btn btn-primary adder" id="btnResetHeight" style="width: 100%;" value="초기화" onclick="resetHeight();"/>
+                    </div>
+                    <div class="div-title">
+                        <span>Vị Trí Thi Đấu</span>
+                    </div>
+                    <select class="form-select" id="pos-select" aria-label="포지션 선택">
+                        <option value="all">Tất cả</option>
+                        <option value="gk">GK</option>
+                        <option value="lb">LB</option>
+                        <option value="lwb">LWB</option>
+                        <option value="cb">CB</option>
+                        <option value="rb">RB</option>
+                        <option value="rwb">RWB</option>
+                        <option value="cm">CM</option>
+                        <option value="cam">CAM</option>
+                        <option value="cdm">CDM</option>
+                        <option value="lm">LM</option>
+                        <option value="rm">RM</option>
+                        <option value="lw">LW</option>
+                        <option value="st">ST</option>
+                        <option value="cf">CF</option>
+                        <option value="rw">RW</option>
+
+                    </select>
+                    <div class="button-div">
+                        <input type="button" class="btn btn-primary adder" id="btnSearch" style="width: 100px; bottom: -8px;" value="검색" onclick="detailSearch();"/>
+                    </div>
+                </div>
+            </div>
+            <div class="side-menu">
+                <div class="div-title">
+                    <span>Đội Hình Thi Đấu</span>
+                </div>
+                <select class="form-select" id="form-select" aria-label="Chọn Đội Hình">
+                        
+                </select>
+                <div class="edit-card">
+                    <br>
+                    <div class="pos-name">
+                        <span>Vị Trí:</span>
+                    </div>
+                    <div class="div-title">
+                        <span>Lựa Chọn Cầu Thủ</span>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" class="form-control" id="inputTxt" placeholder="Nhập Tên Cầu Thủ" onkeypress="checkEnter(0);" />
+                        <div class="icon-button" id="search-button" onclick="searchCards();">
+                            <img class="icon-img" src="./resources/icons/icon_search.svg" title="검색"/>
+                        </div>
+                    </div>
+                    <div class="div-list" id="card-list">
+                        <ul class="search-list">
+    
+                        </ul>
+                    </div>
+                    <div id="check-div" class="form-check form-switch" style="margin: 4px">
+                        <input class="form-check-input" type="checkbox" role="switch" id="checkMulti">
+                        <label class="form-check-label" for="checkMulti" id="checkLabel">Nhiều Lựa Chọn</label>
+                    </div>
+                    <div class="div-bottom">
+                        <div class="icon-button" id="search-button" onclick="removeData();">
+                            <img class="icon-img" src="./resources/icons/icon_delete.svg" title="Xoá Lựa Chọn"/>
+                        </div>
+                        <div class="icon-button" id="search-button" onclick="removeFace();">
+                            <img class="icon-img" src="./resources/icons/icon_delete_forever.svg" title="Xoá Vĩnh Viễn"/>
+                        </div>
+                        <div class="icon-button" id="search-button" onclick="clearData();">
+                            <img class="icon-img" src="./resources/icons/icon_reset.svg" title="Đặt Lại Ban Đầu"/>
+                        </div>
+                        <div class="icon-button" id="search-button" onclick="saveData();">
+                            <img class="icon-img" src="./resources/icons/icon_save.svg" title="Lưu Lại"/>
+                        </div>
+                        <div class="icon-button" id="search-button" onclick="loadData();">
+                            <img class="icon-img" src="./resources/icons/icon_upload.svg" title="Tải Lên"/>
+                        </div>
+                    </div>
+                    <div class="div-bottom2">
+                        <div class="div-flex">
+                            <div class="icon-button" id="search-button" onclick="removeData();">
+                                <img class="icon-img" src="./resources/icons/icon_delete.svg" title="Xoá Lựa Chọn"/>
+                            </div>
+                            <div class="icon-button" id="search-button" onclick="removeFace();">
+                                <img class="icon-img" src="./resources/icons/icon_delete_forever.svg" title="Xoá Vĩnh Viễn"/>
+                            </div>
+                            <div class="icon-button" id="search-button" onclick="clearData();">
+                                <img class="icon-img" src="./resources/icons/icon_reset.svg" title="Đặt Lại Ban Đầu"/>
+                            </div>
+                        </div>
+                        <div class="div-flex">
+                            <div class="icon-button" id="search-button" onclick="saveData();">
+                                <img class="icon-img" src="./resources/icons/icon_save.svg" title="Lưu Lại"/>
+                            </div>
+                            <div class="icon-button" id="search-button" onclick="loadData();">
+                                <img class="icon-img" src="./resources/icons/icon_upload.svg" title="Tải Lên"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-btn">
+                        <input type="button" class="btn btn-primary adder" id="btnSave" style="width: 235px;" value="Lưu Dưới Dạng Hình Ảnh" onclick="saveImage();"/>
+                    </div>
+                    <div class="footer-text">Data based on http://www.thptmaithanhthe.edu.vn/</div>
+                    <div class="footer-text">Last Update: 2024.11.14</div>
+                    <div class="footer-text">This Website By Ishibuki</div>
+                    <div class="footer-text">Do Not Reup</div>
+                    <!--<div class="footer-text" id="donate-text" onclick="copyDonate();">HEHE được tài trợ đấy</div>-->
+                    <div class="footer-text" id="donate-text" onclick="copyEmail();">Thắc Mắc Về Website</div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function copyDonate() {
+            var str = "6999927092007 MBBank";
+            if(navigator.clipboard) {
+                navigator.clipboard.writeText(str).then(() => {
+                    alert("Số Tài Khoản (6999927092007) đã được sao chép");
+                })
+            } else {
+                alert("Lỗi Sao Chép");
+            }
+        }
+
+        function copyEmail() {
+            var str = "tranvuhoaphat@gmail.com";
+            if(navigator.clipboard) {
+                navigator.clipboard.writeText(str).then(() => {
+                    alert("G-Mail tranvuhoaphat@gmail.com đã được sao chép");
+                })
+            } else {
+                alert("Lỗi Sao Chép");
+            }
+        }
+    </script>
+</html>
